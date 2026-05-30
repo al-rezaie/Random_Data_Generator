@@ -1,6 +1,6 @@
 import random
 
-class Categorized():
+class Categorized:
     def __init__(self, categories_list, n_data):
         self.categories_list = categories_list
         self.n_data = n_data
