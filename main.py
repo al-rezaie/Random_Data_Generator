@@ -1,5 +1,6 @@
 from src import Categorized
 from src import Date
+from src import Email
 from src import ID
 from src import IPv4
 from src import Number
@@ -14,7 +15,7 @@ def main():
         exit()
         
     print("\nWhat type of data you want to generate? Pleas select by typing the number:")
-    print("1.Categorized data\n2.Date\n3.Unique IDs\n4.IPv4\n5.Number\n6.Phone Number\n7.Random Time\n")
+    print("1.Categorized data\n2.Date\n3.Unique IDs\n4.IPv4\n5.Number\n6.Phone Number\n7.Random Time\n8.Random Email\n")
     data_type = int(input())
     
     match data_type:
@@ -38,6 +39,8 @@ def main():
             print("Phone")
         case 7:
             print("Time")
+        case 8:
+            print("Email")
             
             
 if __name__ == "__main__":
