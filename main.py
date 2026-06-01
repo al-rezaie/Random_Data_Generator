@@ -40,7 +40,22 @@ def main():
             for data in RDG.create_list():
                 print(data)
         case 5:
-            print("Number")
+            print("\nPlease select the number type by typing the number:\n")
+            print("1.Decimal\n2.Integer\n")
+            number_type = int(input())
+            
+            if number_type == 1:
+                values = Number.Continuous.get_fields()
+                RDG = Number.Continuous(values)
+                for data in RDG.create_list():
+                    print(data)
+            
+            else:
+                values = Number.Discrete.get_fields()
+                RDG = Number.Discrete(values)
+                for data in RDG.create_list():
+                    print(data)
+            
         case 6:
             value = Phone.Phone.get_fields()
             RDG = Phone.Phone(value)
