@@ -30,7 +30,10 @@ def main():
             for data in RDG.create_list():
                 print(data)
         case 3:
-            print("ID")
+            value = ID.ID.get_fields()
+            RDG = ID.ID(value)
+            for data in RDG.create_list():
+                print(data)
         case 4:
             print("IPv4")
         case 5:
