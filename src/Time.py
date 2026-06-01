@@ -12,3 +12,8 @@ class Time:
             data.append(time)
         
         return data
+    
+    def get_fields(*args):
+        n_data = int(input("Enter the number of data you want to generate: "))
+        
+        return n_data

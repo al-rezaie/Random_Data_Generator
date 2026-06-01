@@ -13,7 +13,12 @@ class Phone:
         for i in range(self.n_data):
             phone_number = random.choice(Phone.constants)
             for j in range(7):
-                phone_number + random.choice(Phone.numbers)
+                phone_number += random.choice(Phone.numbers)
             data.append(phone_number)
             
         return data
+    
+    def get_fields(*args):
+        n_data = int(input("Enter the number of data you want to generate: "))
+        
+        return n_data

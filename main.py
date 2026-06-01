@@ -42,11 +42,20 @@ def main():
         case 5:
             print("Number")
         case 6:
-            print("Phone")
+            value = Phone.Phone.get_fields()
+            RDG = Phone.Phone(value)
+            for data in RDG.create_list():
+                print(data)
         case 7:
-            print("Time")
+            value = Time.Time.get_fields()
+            RDG = Time.Time(value)
+            for data in RDG.create_list():
+                print(data)
         case 8:
-            print("Email")
+            value = Email.Email.get_fields()
+            RDG = Email.Email(value)
+            for data in RDG.create_list():
+                print(data)
             
             
 if __name__ == "__main__":
