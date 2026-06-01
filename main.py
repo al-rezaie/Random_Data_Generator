@@ -19,7 +19,10 @@ def main():
     
     match data_type:
         case 1:
-            print("Categorized")
+            values = Categorized.Categorized.get_fields()
+            RDG = Categorized.Categorized(values)
+            for data in RDG.create_list():
+                print(data)
         case 2:
             print("Date")
         case 3:
@@ -35,6 +38,6 @@ def main():
             
             
 if __name__ == "__main__":
-    print("Welcome to Random Data Generator. Please choose your action from the options below by typing the number:")
+    print("\nWelcome to Random Data Generator. Please choose your action from the options below by typing the number:")
     while True:
         main()
