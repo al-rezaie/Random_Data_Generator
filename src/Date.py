@@ -27,6 +27,4 @@ class Date:
         
         n_data = int(input("Enter the number of data you want to generate: "))
         
-        values = [start_date, end_date, n_data]
-        
-        return values
+        return [start_date, end_date, n_data]

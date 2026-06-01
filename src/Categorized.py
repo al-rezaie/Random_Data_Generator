@@ -17,5 +17,4 @@ class Categorized:
         categories_list = input("Enter categories list seperated with ,: ").strip().split(",")
         n_data = int(input("Enter the number of data you want to generate: "))
         
-        values = [categories_list, n_data]
-        return values
+        return [categories_list, n_data]
