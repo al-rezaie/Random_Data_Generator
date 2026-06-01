@@ -24,7 +24,10 @@ def main():
             for data in RDG.create_list():
                 print(data)
         case 2:
-            print("Date")
+            values = Date.Date.get_fields()
+            RDG = Date.Date(values)
+            for data in RDG.create_list():
+                print(data)
         case 3:
             print("ID")
         case 4:
