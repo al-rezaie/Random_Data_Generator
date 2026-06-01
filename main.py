@@ -35,7 +35,10 @@ def main():
             for data in RDG.create_list():
                 print(data)
         case 4:
-            print("IPv4")
+            value = IPv4.IPv4.get_fields()
+            RDG = IPv4.IPv4(value)
+            for data in RDG.create_list():
+                print(data)
         case 5:
             print("Number")
         case 6:
