@@ -1,11 +1,4 @@
-from src import Categorized
-from src import Date
-from src import Email
-from src import ID
-from src import IPv4
-from src import Number
-from src import Phone
-from src import Time
+import RDGs
 
 def main():
     print("\n1. Create a new random list\n2. exit\n")
@@ -20,23 +13,23 @@ def main():
     
     match data_type:
         case 1:
-            values = Categorized.Categorized.get_fields()
-            RDG = Categorized.Categorized(values)
+            values = RDGs.Categorized.get_fields()
+            RDG = RDGs.Categorized(values)
             for data in RDG.create_list():
                 print(data)
         case 2:
-            values = Date.Date.get_fields()
-            RDG = Date.Date(values)
+            values = RDGs.Date.get_fields()
+            RDG = RDGs.Date(values)
             for data in RDG.create_list():
                 print(data)
         case 3:
-            value = ID.ID.get_fields()
-            RDG = ID.ID(value)
+            value = RDGs.ID.get_fields()
+            RDG = RDGs.ID(value)
             for data in RDG.create_list():
                 print(data)
         case 4:
-            value = IPv4.IPv4.get_fields()
-            RDG = IPv4.IPv4(value)
+            value = RDGs.IPv4.get_fields()
+            RDG = RDGs.IPv4(value)
             for data in RDG.create_list():
                 print(data)
         case 5:
@@ -45,30 +38,30 @@ def main():
             number_type = int(input())
             
             if number_type == 1:
-                values = Number.Continuous.get_fields()
-                RDG = Number.Continuous(values)
+                values = RDGs.Continuous.get_fields()
+                RDG = RDGs.Continuous(values)
                 for data in RDG.create_list():
                     print(data)
             
             else:
-                values = Number.Discrete.get_fields()
-                RDG = Number.Discrete(values)
+                values = RDGs.Discrete.get_fields()
+                RDG = RDGs.Discrete(values)
                 for data in RDG.create_list():
                     print(data)
             
         case 6:
-            value = Phone.Phone.get_fields()
-            RDG = Phone.Phone(value)
+            value = RDGs.Phone.get_fields()
+            RDG = RDGs.Phone(value)
             for data in RDG.create_list():
                 print(data)
         case 7:
-            value = Time.Time.get_fields()
-            RDG = Time.Time(value)
+            value = RDGs.Time.get_fields()
+            RDG = RDGs.Time(value)
             for data in RDG.create_list():
                 print(data)
         case 8:
-            value = Email.Email.get_fields()
-            RDG = Email.Email(value)
+            value = RDGs.Email.get_fields()
+            RDG = RDGs.Email(value)
             for data in RDG.create_list():
                 print(data)
             
