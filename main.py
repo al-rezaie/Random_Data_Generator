@@ -1,4 +1,31 @@
 import RDGs
+from datetime import datetime
+
+def fields(fields: dict):
+    values = []
+    
+    for key in fields.keys():
+        field = fields[key]
+        user_input = input(field[0])
+        
+        try:   
+            match field[1]:
+                case "int":
+                    values.append(int(user_input))
+                
+                case "float":
+                    values.append(float(user_input))
+                
+                case "list":
+                    values.append(user_input.strip().split(","))
+                
+                case "date":
+                    values.append(datetime.strptime(user_input, RDGs.Date.date_format))
+        except:
+            print("Your input doesn't match the pattern. Please pay attention.")
+            fields(fields)
+            
+    return values
 
 def main():
     print("\n1. Create a new random list\n2. exit\n")
@@ -13,23 +40,23 @@ def main():
     
     match data_type:
         case 1:
-            values = RDGs.Categorized.get_fields()
+            values = fields(RDGs.Categorized.fields)
             RDG = RDGs.Categorized(values)
             for data in RDG.create_list():
                 print(data)
         case 2:
-            values = RDGs.Date.get_fields()
+            values = fields(RDGs.Date.fields)
             RDG = RDGs.Date(values)
             for data in RDG.create_list():
                 print(data)
         case 3:
-            value = RDGs.ID.get_fields()
-            RDG = RDGs.ID(value)
+            values = fields(RDGs.ID.fields)
+            RDG = RDGs.ID(values)
             for data in RDG.create_list():
                 print(data)
         case 4:
-            value = RDGs.IPv4.get_fields()
-            RDG = RDGs.IPv4(value)
+            values = fields(RDGs.IPv4.fields)
+            RDG = RDGs.IPv4(values)
             for data in RDG.create_list():
                 print(data)
         case 5:
@@ -38,30 +65,32 @@ def main():
             number_type = int(input())
             
             if number_type == 1:
-                values = RDGs.Continuous.get_fields()
+                values = fields(RDGs.Continuous.fields)
                 RDG = RDGs.Continuous(values)
                 for data in RDG.create_list():
                     print(data)
             
             else:
-                values = RDGs.Discrete.get_fields()
+                values = fields(RDGs.Discrete.fields)
                 RDG = RDGs.Discrete(values)
                 for data in RDG.create_list():
                     print(data)
             
         case 6:
-            value = RDGs.Phone.get_fields()
-            RDG = RDGs.Phone(value)
+            values = fields(RDGs.Phone.fields)
+            RDG = RDGs.Phone(values)
             for data in RDG.create_list():
                 print(data)
+                
         case 7:
-            value = RDGs.Time.get_fields()
-            RDG = RDGs.Time(value)
+            values = fields(RDGs.Time.fields)
+            RDG = RDGs.Time(values)
             for data in RDG.create_list():
                 print(data)
+                
         case 8:
-            value = RDGs.Email.get_fields()
-            RDG = RDGs.Email(value)
+            values = fields(RDGs.Email.fields)
+            RDG = RDGs.Email(values)
             for data in RDG.create_list():
                 print(data)
             

@@ -5,6 +5,11 @@ from string import digits
 from uuid import uuid4
 
 class Categorized:
+    fields = {
+        "categories_list": ["Enter categories list seperated with ,: ", "list"],
+        "n_data": ["Enter the number of data you want to generate: ", "int"]
+    }
+    
     def __init__(self, values):
         self.categories_list = values[0]
         self.n_data = values[1]
@@ -16,15 +21,13 @@ class Categorized:
             
         return data
     
-    @classmethod
-    def get_fields(*args):
-        categories_list = input("Enter categories list seperated with ,: ").strip().split(",")
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return [categories_list, n_data]
-    
 class Date:
     date_format = "%d-%m-%Y"
+    fields = {
+        "start_date": ["Enter the start date: ", "date"],
+        "end_date": ["Enter the end date: ", "date"],
+        "n_data": ["Enter the number of data you want to generate: ", "int"]
+    }
     
     def __init__(self, values):
         self.start_date = values[0]
@@ -39,23 +42,15 @@ class Date:
             
         return data
     
-    @classmethod
-    def get_fields(*args):
-        string_start_date = input("Enter the start date: ")
-        start_date = datetime.datetime.strptime(string_start_date, Date.date_format)
-        
-        string_end_date = input("Enter the end date: ")
-        end_date = datetime.datetime.strptime(string_end_date, Date.date_format)
-        
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return [start_date, end_date, n_data]
-    
 class Email:
     characters = string.ascii_letters + string.digits
     prefixes = ["@gmail.com", "@yahoo.com", "@outlook.com"]
-    def __init__(self, n_data):
-        self.n_data = n_data
+    fields = {
+        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -70,14 +65,13 @@ class Email:
             
         return data
     
-    def get_fields(*args):
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return n_data
-    
 class ID:
-    def __init__(self, n_data):
-        self.n_data = n_data
+    fields = {
+        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -87,14 +81,13 @@ class ID:
             
         return data
     
-    def get_fields(*args):
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return n_data
-    
 class IPv4:
-    def __init__(self, n_data):
-        self.n_data = n_data
+    fields = {
+        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -108,12 +101,14 @@ class IPv4:
             
         return data
     
-    def get_fields(*args):
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return n_data
-    
 class Continuous:
+    fields = {
+        "range_start": ["Enter the start of the range: ", "float"],
+        "range_end": ["Enter the end of the range", "float"],
+        "n_decimal": ["Enter the number of decimals after '.': "],
+        "n_data": ["Enter the number of data you want to generate: "]
+    }
+    
     def __init__(self, values):
         self.range_start = values[0]
         self.range_end = values[1]
@@ -127,16 +122,13 @@ class Continuous:
             numbers_list.append(number)
         return numbers_list
     
-    @classmethod
-    def get_fields(*args):
-        range_start = float(input("Enter the start of the range: "))
-        range_end = float(input("Enter the end of the range: "))
-        n_decimal = int(input("Enter the number of decimals after '.': "))
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return [range_start, range_end, n_decimal, n_data]
-    
 class Discrete:
+    fields = {
+        "range_start": ["Enter the start of the range: ", "int"],
+        "range_end": ["Enter the end of the range", "int"],
+        "n_data": ["Enter the number of data you want to generate: "]
+    }
+    
     def __init__(self, values):
         self.range_start = values[0]
         self.range_end = values[1]
@@ -149,20 +141,16 @@ class Discrete:
             numbers_list.append(number)
         return numbers_list
     
-    @classmethod
-    def get_fields(*args):
-        range_start = int(input("Enter the start of the range: "))
-        range_end = int(input("Enter the end of the range: "))
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return [range_start, range_end, n_data]
-    
 class Phone:
     constants = ["0917", "0936", "0938", "0939"]
     numbers = [str(x) for x in digits]
     
-    def __init__(self, n_data):
-        self.n_data = n_data
+    fields = {
+        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -174,14 +162,13 @@ class Phone:
             
         return data
     
-    def get_fields(*args):
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return n_data
-    
 class Time:
-    def __init__(self, n_data):
-        self.n_data = n_data
+    fields = {
+        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -190,8 +177,3 @@ class Time:
             data.append(time)
         
         return data
-    
-    def get_fields(*args):
-        n_data = int(input("Enter the number of data you want to generate: "))
-        
-        return n_data
