@@ -105,8 +105,8 @@ class Continuous:
     fields = {
         "range_start": ["Enter the start of the range: ", "float"],
         "range_end": ["Enter the end of the range", "float"],
-        "n_decimal": ["Enter the number of decimals after '.': "],
-        "n_data": ["Enter the number of data you want to generate: "]
+        "n_decimal": ["Enter the number of decimals after '.': ", "int"],
+        "n_data": ["Enter the number of data you want to generate: ", "int"]
     }
     
     def __init__(self, values):
@@ -126,7 +126,7 @@ class Discrete:
     fields = {
         "range_start": ["Enter the start of the range: ", "int"],
         "range_end": ["Enter the end of the range", "int"],
-        "n_data": ["Enter the number of data you want to generate: "]
+        "n_data": ["Enter the number of data you want to generate: ", "int"]
     }
     
     def __init__(self, values):

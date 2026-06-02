@@ -87,6 +87,8 @@ def main():
             while True:
                 try:
                     number_type = int(input())
+                    if number_type > 2 or number_type < 1:
+                        raise "Invalid entry"
                     break
                 except:
                     print("\nYour input doesn't match the pattern. Please try again.\n")
