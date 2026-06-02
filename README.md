@@ -7,8 +7,6 @@ $ cd Random_Data_Generator
 $ python main.py
 ~~~
 ## Todo
-* Add input validation
-* Pack classes in one file
 * Create a parent class for all generator classes
 * Create a GUI
 ## Contribution
