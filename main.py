@@ -42,7 +42,7 @@ def main():
             action = int(input())
             break
         except:
-            print("Your input doesn't match the pattern. Please try again.")
+            print("\nYour input doesn't match the pattern. Please try again.\n")
             continue
     
     if action == 2:
@@ -56,7 +56,7 @@ def main():
             data_type = int(input())
             break
         except:
-            print("Your input doesn't match the pattern. Please try again.")
+            print("\nYour input doesn't match the pattern. Please try again.\n")
             continue
     
     match data_type:
@@ -83,7 +83,14 @@ def main():
         case 5:
             print("\nPlease select the number type by typing the number:\n")
             print("1.Decimal\n2.Integer\n")
-            number_type = int(input())
+            
+            while True:
+                try:
+                    number_type = int(input())
+                    break
+                except:
+                    print("\nYour input doesn't match the pattern. Please try again.\n")
+                    continue
             
             if number_type == 1:
                 values = get_fields(RDGs.Continuous.fields)
