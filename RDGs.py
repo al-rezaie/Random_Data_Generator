@@ -4,6 +4,14 @@ import string
 from string import digits
 from uuid import uuid4
 
+class Random_Generator:
+    fields = {
+        "n_data": ["Enter the number of data you want to generate: ", "int"]
+    }
+    
+    def __init__(self, values):
+        self.n_data = values[0]
+
 class Categorized:
     fields = {
         "categories_list": ["Enter categories list seperated with ,: ", "list"],
@@ -42,15 +50,9 @@ class Date:
             
         return data
     
-class Email:
+class Email (Random_Generator):
     characters = string.ascii_letters + string.digits
     prefixes = ["@gmail.com", "@yahoo.com", "@outlook.com"]
-    fields = {
-        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
-    }
-    
-    def __init__(self, values):
-        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -65,14 +67,8 @@ class Email:
             
         return data
     
-class ID:
-    fields = {
-        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
-    }
-    
-    def __init__(self, values):
-        self.n_data = values[0]
-        
+class ID (Random_Generator):
+         
     def create_list(self):
         data = []
         for i in range(self.n_data):
@@ -81,13 +77,7 @@ class ID:
             
         return data
     
-class IPv4:
-    fields = {
-        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
-    }
-    
-    def __init__(self, values):
-        self.n_data = values[0]
+class IPv4 (Random_Generator):
         
     def create_list(self):
         data = []
@@ -141,16 +131,9 @@ class Discrete:
             numbers_list.append(number)
         return numbers_list
     
-class Phone:
+class Phone (Random_Generator):
     constants = ["0917", "0936", "0938", "0939"]
     numbers = [str(x) for x in digits]
-    
-    fields = {
-        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
-    }
-    
-    def __init__(self, values):
-        self.n_data = values[0]
         
     def create_list(self):
         data = []
@@ -162,13 +145,7 @@ class Phone:
             
         return data
     
-class Time:
-    fields = {
-        "n_data": ["Enter the numbe of data you want to generate: ", "int"]
-    }
-    
-    def __init__(self, values):
-        self.n_data = values[0]
+class Time (Random_Generator):
         
     def create_list(self):
         data = []
