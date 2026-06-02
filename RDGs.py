@@ -125,7 +125,7 @@ class Continuous:
 class Discrete:
     fields = {
         "range_start": ["Enter the start of the range: ", "int"],
-        "range_end": ["Enter the end of the range", "int"],
+        "range_end": ["Enter the end of the range: ", "int"],
         "n_data": ["Enter the number of data you want to generate: ", "int"]
     }
     
