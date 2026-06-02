@@ -24,6 +24,8 @@ class Categorized:
         return [categories_list, n_data]
     
 class Date:
+    date_format = "%d-%m-%Y"
+    
     def __init__(self, values):
         self.start_date = values[0]
         self.end_date = values[1]
@@ -40,10 +42,10 @@ class Date:
     @classmethod
     def get_fields(*args):
         string_start_date = input("Enter the start date: ")
-        start_date = datetime.datetime.strptime(string_start_date, date_format)
+        start_date = datetime.datetime.strptime(string_start_date, Date.date_format)
         
         string_end_date = input("Enter the end date: ")
-        end_date = datetime.datetime.strptime(string_end_date, date_format)
+        end_date = datetime.datetime.strptime(string_end_date, Date.date_format)
         
         n_data = int(input("Enter the number of data you want to generate: "))
         
