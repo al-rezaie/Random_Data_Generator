@@ -7,7 +7,6 @@ $ cd Random_Data_Generator
 $ python main.py
 ~~~
 ## Todo
-* Create a parent class for all generator classes
 * Create a GUI
 ## Contribution
 If anyone is intrested in contributing, I'll be happy to cooperate.
