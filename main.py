@@ -58,9 +58,9 @@ GENERATORS = {
     2: ("Date", RDGs.Date),
     3: ("Unique IDs", RDGs.ID),
     4: ("IPv4", RDGs.IPv4),
-    6: ("Phone Number", RDGs.Phone),
-    7: ("Random Time", RDGs.Time),
-    8: ("Random Email", RDGs.Email),
+    5: ("Phone Number", RDGs.Phone),
+    6: ("Random Time", RDGs.Time),
+    7: ("Random Email", RDGs.Email),
 }
 
 
@@ -99,7 +99,7 @@ def main():
         for key, (name, _) in GENERATORS.items():
             print(f"{key}. {name}")
 
-        print("5. Number")
+        print("8. Number")
 
         try:
             data_type = int(input("\nSelect option: "))
@@ -108,28 +108,30 @@ def main():
             print("\nInvalid option.\n")
             continue
 
-        if data_type == 5:
+        if data_type == 8:
+            while True:
+                print("\n1. Decimal")
+                print("2. Integer\n")
 
-            print("\n1. Decimal")
-            print("2. Integer\n")
+                try:
+                    number_type = int(
+                        input("Select option: ")
+                    )
 
-            try:
-                number_type = int(
-                    input("Select option: ")
-                )
+                    if number_type == 1:
+                        run_generator(RDGs.Continuous)
 
-                if number_type == 1:
-                    run_generator(RDGs.Continuous)
+                    elif number_type == 2:
+                        run_generator(RDGs.Discrete)
 
-                elif number_type == 2:
-                    run_generator(RDGs.Discrete)
+                    else:
+                        print("\nInvalid option.\n")
+                        
+                    break
 
-                else:
+                except ValueError:
                     print("\nInvalid option.\n")
-
-            except ValueError:
-                print("\nInvalid option.\n")
-
+                    
             continue
 
         if data_type not in GENERATORS:
