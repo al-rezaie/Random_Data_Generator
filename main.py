@@ -1,16 +1,18 @@
 from datetime import datetime
 from pyperclip import copy
 from enum import Enum
+from pathlib import Path
+from csv import writer
 import RDGs
 
 GENERATORS = {
-    1: ("Categorized Data", RDGs.Categorized),
+    1: ("Categorized", RDGs.Categorized),
     2: ("Date", RDGs.Date),
-    3: ("Unique IDs", RDGs.ID),
+    3: ("ID", RDGs.ID),
     4: ("IPv4", RDGs.IPv4),
     5: ("Phone Number", RDGs.Phone),
-    6: ("Random Time", RDGs.Time),
-    7: ("Random Email", RDGs.Email),
+    6: ("Time", RDGs.Time),
+    7: ("Email", RDGs.Email),
 }
 
 class Colors(Enum):
@@ -76,13 +78,32 @@ def copy_to_clipboard(data):
         copy("\n".join(str(d) for d in data))
         print(f"\n{Colors.Info.value}Data was copied{Colors.Reset.value}\n")
 
+def import_to_csv(data, header):
+    print("\nDo you want the data to be saved in a CSV file?\n")
+    print("0.No\n1.Yes\n")
+    confirm = input("Select number: ").strip()
+    
+    if confirm == "1":    
+        file_name = input("Please enter the name of the CSV file: ").strip()
+        file_name += ".csv"
+        file_address = Path.cwd() / Path(file_name)
+        rows = [[d] for d in data]
+        print(rows)
+        
+        with open(file_address, "w", newline="") as csvfile:
+            csvwriter = writer(csvfile)
+            csvwriter.writerow([header])
+            csvwriter.writerows(rows)
+            
+        print("\nData was saved\n")
 
-def run_generator(generator_class):
+def run_generator(generator_class, type_name="Number"):
     try:
         values = get_fields(generator_class.fields)
         generator = generator_class(values)
         data_list = generator.create_list()
         print_list(data_list)
+        import_to_csv(data_list, type_name)
         copy_to_clipboard(data_list)
 
     except ValueError as e:
@@ -154,7 +175,8 @@ def main():
             continue
 
         run_generator(
-            GENERATORS[data_type][1]
+            GENERATORS[data_type][1],
+            GENERATORS[data_type][0]
         )
 
 
