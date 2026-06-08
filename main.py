@@ -3,6 +3,19 @@ from pyperclip import copy
 from enum import Enum
 import RDGs
 
+GENERATORS = {
+    1: ("Categorized Data", RDGs.Categorized),
+    2: ("Date", RDGs.Date),
+    3: ("Unique IDs", RDGs.ID),
+    4: ("IPv4", RDGs.IPv4),
+    5: ("Phone Number", RDGs.Phone),
+    6: ("Random Time", RDGs.Time),
+    7: ("Random Email", RDGs.Email),
+}
+
+class Colors(Enum):
+    Info = "\033[96m"
+    Reset = "\033[0m"
 
 def get_fields(fields: dict):
     values = []
@@ -54,17 +67,6 @@ def print_list(data):
 
     print()
 
-
-GENERATORS = {
-    1: ("Categorized Data", RDGs.Categorized),
-    2: ("Date", RDGs.Date),
-    3: ("Unique IDs", RDGs.ID),
-    4: ("IPv4", RDGs.IPv4),
-    5: ("Phone Number", RDGs.Phone),
-    6: ("Random Time", RDGs.Time),
-    7: ("Random Email", RDGs.Email),
-}
-
 def copy_to_clipboard(data):
     print("\nDo you want the data to be copied?\n")
     print("0.No\n1.Yes\n")
@@ -72,7 +74,7 @@ def copy_to_clipboard(data):
     
     if confirm == "1": 
         copy("\n".join(str(d) for d in data))
-        print("\nData was copied\n")
+        print(f"\n{Colors.Info.value}Data was copied{Colors.Reset.value}\n")
 
 
 def run_generator(generator_class):
