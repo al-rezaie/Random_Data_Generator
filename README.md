@@ -2,7 +2,7 @@
 This project is built to solve my own problem. Having random data for coding projects. Although AI can handle it, sometimes you don't have access to it.
 <br>
 <br>
-<span style="color: blue">NOTICE: The version 2.0 is out.</span>
+<strong><span style="color: blue">NOTICE: The version 3.0 is out.</span></strong>
 ## How to use
 **make sure to have python installed**
 ~~~
