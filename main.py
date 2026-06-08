@@ -1,4 +1,6 @@
 from datetime import datetime
+from pyperclip import copy
+from enum import Enum
 import RDGs
 
 
@@ -63,12 +65,23 @@ GENERATORS = {
     7: ("Random Email", RDGs.Email),
 }
 
+def copy_to_clipboard(data):
+    print("\nDo you want the data to be copied?\n")
+    print("0.No\n1.Yes\n")
+    confirm = input("Select number: ").strip()
+    
+    if confirm == "1": 
+        copy("\n".join(str(d) for d in data))
+        print("\nData was copied\n")
+
 
 def run_generator(generator_class):
     try:
         values = get_fields(generator_class.fields)
         generator = generator_class(values)
-        print_list(generator.create_list())
+        data_list = generator.create_list()
+        print_list(data_list)
+        copy_to_clipboard(data_list)
 
     except ValueError as e:
         print(f"\nError: {e}\n")
